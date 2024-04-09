@@ -3,6 +3,11 @@ Delete unnecessary files
 dpkg-query -W -f '${Version}\n' 'linux-image-[^g]*'|sort -u|sed -e '/^$/d' -e 's/\~[^~]*$//' -e 's/\.[^.]*$//' -e "/$(uname -r|sed 's/-generic//')/d" -e 's/.*/linux-*-&*/'|tr '\n' ' '|xargs -pr sudo apt-get remove --purge -y
 ```
 
+Current dir's subdir sizes
+```bash
+du -sh * | sort -hr
+```
+
 Updating Firefox: 
 ```bash
 # atnaujina visus sarasus, pagal kuriuos atnaujinamos programos
